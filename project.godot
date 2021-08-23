@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="sp2r"
+run/main_scene="res://example_scene.tscn"
 config/icon="res://icon.png"
 
 [rendering]
