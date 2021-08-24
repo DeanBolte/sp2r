@@ -19,6 +19,10 @@ config/name="sp2r"
 run/main_scene="res://world1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneChanger="*res://SceneChanger.tscn"
+
 [display]
 
 window/size/height=768
@@ -63,6 +67,7 @@ ui_down={
 2d_physics/layer_4="EnemyHurtBox"
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="Rooms"
+2d_physics/layer_7="Transitions"
 
 [rendering]
 

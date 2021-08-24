@@ -24,6 +24,9 @@ func _physics_process(delta):
 		velocity.x += move * ACCELERATION * delta
 		velocity.x = clamp(velocity.x, -MAX_VELCOTITY, MAX_VELCOTITY)
 	
+	if(Input.get_action_strength("ui_down")):
+		SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+	
 	# air
 	if(is_on_floor()):
 		# reset jumps
@@ -77,3 +80,6 @@ func _on_RoomDetector_area_entered(area):
 	
 	camera.limit_bottom = camera.limit_top + size.y
 	camera.limit_right = camera.limit_left + size.x
+
+func _on_SecretTransition_area_entered(area):
+	SceneChanger.change_scene("res://world1_secret.tscn", "fade")

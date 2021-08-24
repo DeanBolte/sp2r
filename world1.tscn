@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/walls/forewall.png" type="Texture" id=2]
@@ -65,19 +65,25 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 512, 384 )
+extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 512, 384 )
+extents = Vector2( 496, 368 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 128, 16 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 512, 384 )
+extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 512, 384 )
+extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 512, 384 )
+extents = Vector2( 496, 368 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 16, 16 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 16, 16 )
@@ -109,7 +115,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -131031, 0, 0, -131030, 0, 0, -131029, 0, 0, -131028, 0, 0, -131027, 0, 0, -131026, 0, 0, -131025, 0, 0, -131024, 0, 0, 655455, 0, 0, 720991, 0, 0, 786527, 0, 0, 1310751, 0, 0, 1310783, 0, 0, 1310847, 0, 0, 1376287, 0, 0, 1376319, 0, 0, 1376383, 0, 0, 1441823, 0, 0, 1441855, 0, 0, 1441919, 0, 0 )
+tile_data = PoolIntArray( 655455, 0, 0, 720991, 0, 0, 786527, 0, 0, 1310751, 0, 0, 1310783, 0, 0, 1310847, 0, 0, 1376287, 0, 0, 1376319, 0, 0, 1376383, 0, 0, 1441823, 0, 0, 1441855, 0, 0, 1441919, 0, 0 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -135,6 +141,14 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
 visible = false
 shape = SubResource( 6 )
+
+[node name="SecretTransition" type="Area2D" parent="."]
+position = Vector2( 1440, -48 )
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretTransition"]
+shape = SubResource( 11 )
 
 [node name="Room3" type="Area2D" parent="."]
 position = Vector2( 2544, 368 )
@@ -165,3 +179,12 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room5"]
 visible = false
 shape = SubResource( 10 )
+
+[node name="WorldTransition" type="Area2D" parent="."]
+position = Vector2( 4960, 672 )
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldTransition"]
+shape = SubResource( 12 )
+[connection signal="area_entered" from="SecretTransition" to="YSort/Player" method="_on_SecretTransition_area_entered"]
