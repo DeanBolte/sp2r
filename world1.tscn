@@ -1,17 +1,17 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://world/walls/forewall.png" type="Texture" id=1]
-[ext_resource path="res://world/walls/backwall.png" type="Texture" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/walls/forewall.png" type="Texture" id=2]
 [ext_resource path="res://world/walls/backgroundtile.png" type="Texture" id=3]
 [ext_resource path="res://world/walls/exittile.png" type="Texture" id=4]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/walls/backwall.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "forewall.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -34,7 +34,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "backwall.png 0"
-0/texture = ExtResource( 2 )
+0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -113,7 +113,7 @@ tile_data = PoolIntArray( -131031, 0, 0, -131030, 0, 0, -131029, 0, 0, -131028, 
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 5 )]
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 888, 96 )
 
 [node name="Room1" type="Area2D" parent="."]
@@ -123,6 +123,7 @@ collision_layer = 2147483680
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1"]
+visible = false
 shape = SubResource( 7 )
 
 [node name="Room2" type="Area2D" parent="."]
@@ -132,6 +133,7 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
+visible = false
 shape = SubResource( 6 )
 
 [node name="Room3" type="Area2D" parent="."]
@@ -141,6 +143,7 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
+visible = false
 shape = SubResource( 8 )
 
 [node name="Room4" type="Area2D" parent="."]
@@ -150,6 +153,7 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room4"]
+visible = false
 shape = SubResource( 9 )
 
 [node name="Room5" type="Area2D" parent="."]
@@ -159,4 +163,5 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room5"]
+visible = false
 shape = SubResource( 10 )
