@@ -7,8 +7,10 @@ export var AIR_FRICTION = 0.05
 export var GRAVITY = 1700
 export var JUMP_STRENGTH = 750
 export var WALL_JUMP_STRENGTH = 500
+export var MAX_JUMPS = 2
 
 var velocity = Vector2.ZERO
+var jumps = MAX_JUMPS
 
 func _ready():
 	randomize()
@@ -24,17 +26,26 @@ func _physics_process(delta):
 	
 	# air
 	if(is_on_floor()):
+		# reset jumps
+		jumps = MAX_JUMPS
+		
 		if(move == 0):
 			velocity.x = lerp(velocity.x, 0, FRICTION)
 		
 		if(Input.is_action_just_pressed("ui_up")):
 			velocity.y = -JUMP_STRENGTH
+			jumps -= 1
 	else:
 		# wall jump
 		if(is_on_wall()):
 			if(Input.is_action_just_pressed("ui_up")):
 				velocity.y = -WALL_JUMP_STRENGTH
 				velocity.x += WALL_JUMP_STRENGTH * -move
+		else:
+			# double jump
+			if(Input.is_action_just_pressed("ui_up") && jumps > 0):
+				velocity.y = -JUMP_STRENGTH
+				jumps -= 1
 		
 		if(Input.is_action_just_released("ui_up") and velocity.y < -JUMP_STRENGTH/2):
 			velocity.y = -JUMP_STRENGTH/2
