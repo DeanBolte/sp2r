@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/walls/forewall.png" type="Texture" id=2]
 [ext_resource path="res://world/walls/backgroundtile.png" type="Texture" id=3]
 [ext_resource path="res://world/walls/exittile.png" type="Texture" id=4]
 [ext_resource path="res://world/walls/backwall.png" type="Texture" id=5]
+[ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -64,13 +65,13 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 496, 368 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 128, 16 )
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -82,7 +83,7 @@ extents = Vector2( 496, 368 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 496, 368 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 16, 16 )
 
 [node name="Node2D" type="Node2D"]
@@ -122,6 +123,14 @@ tile_data = PoolIntArray( 655455, 0, 0, 720991, 0, 0, 786527, 0, 0, 1310751, 0, 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 888, 96 )
 
+[node name="YSort" type="YSort" parent="YSort"]
+
+[node name="Enemy" parent="YSort/YSort" instance=ExtResource( 6 )]
+position = Vector2( 2928, 720 )
+
+[node name="Enemy2" parent="YSort/YSort" instance=ExtResource( 6 )]
+position = Vector2( 3520, 336 )
+
 [node name="Room1" type="Area2D" parent="."]
 position = Vector2( 496, 368 )
 monitoring = false
@@ -130,7 +139,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Room2" type="Area2D" parent="."]
 position = Vector2( 1520, 368 )
@@ -148,7 +157,7 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecretTransition"]
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 
 [node name="Room3" type="Area2D" parent="."]
 position = Vector2( 2544, 368 )
@@ -186,5 +195,5 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldTransition"]
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 [connection signal="area_entered" from="SecretTransition" to="YSort/Player" method="_on_SecretTransition_area_entered"]
