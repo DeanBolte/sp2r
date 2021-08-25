@@ -62,7 +62,6 @@ func _physics_process(delta):
 	# move character
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-
 func _on_RoomDetector_area_entered(area):
 	var collision_shape = area.get_node("CollisionShape2D")
 	var size = collision_shape.shape.extents*2
@@ -81,5 +80,9 @@ func _on_RoomDetector_area_entered(area):
 	camera.limit_bottom = camera.limit_top + size.y
 	camera.limit_right = camera.limit_left + size.x
 
-func _on_SecretTransition_area_entered(area):
-	SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+func _on_TransitionDetector_area_entered(area):
+	match area.name:
+		"World1Secret":
+			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+		"World1Trans":
+			SceneChanger.change_scene("res://world1_secret.tscn", "fade")

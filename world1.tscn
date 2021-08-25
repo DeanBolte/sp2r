@@ -151,12 +151,13 @@ collision_mask = 0
 visible = false
 shape = SubResource( 6 )
 
-[node name="SecretTransition" type="Area2D" parent="."]
+[node name="World1Secret" type="Area2D" parent="."]
 position = Vector2( 1440, -48 )
-collision_layer = 0
-collision_mask = 64
+monitoring = false
+collision_layer = 64
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretTransition"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World1Secret"]
 shape = SubResource( 7 )
 
 [node name="Room3" type="Area2D" parent="."]
@@ -189,11 +190,11 @@ collision_mask = 0
 visible = false
 shape = SubResource( 10 )
 
-[node name="WorldTransition" type="Area2D" parent="."]
+[node name="World1Trans" type="Area2D" parent="."]
 position = Vector2( 4960, 672 )
+monitoring = false
 collision_layer = 64
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldTransition"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World1Trans"]
 shape = SubResource( 11 )
-[connection signal="area_entered" from="SecretTransition" to="YSort/Player" method="_on_SecretTransition_area_entered"]
