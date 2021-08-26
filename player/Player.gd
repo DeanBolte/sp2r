@@ -76,6 +76,15 @@ func move_state(delta):
 func move():
 	velocity = move_and_slide(velocity, Vector2.UP)
 
+func transition_scene(area_name):
+	match area_name:
+		"World1Secret":
+			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+		"World1Trans":
+			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+		"World1SecTrans":
+			SceneChanger.change_scene("res://world1.tscn", "fade")
+
 func _on_RoomDetector_area_entered(area):
 	# save current area
 	currentArea = area
@@ -99,13 +108,7 @@ func _on_RoomDetector_area_entered(area):
 	camera.limit_right = camera.limit_left + size.x
 
 func _on_TransitionDetector_area_entered(area):
-	match area.name:
-		"World1Secret":
-			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
-		"World1Trans":
-			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
-		"World1SecTrans":
-			SceneChanger.change_scene("res://world1.tscn", "fade")
+	transition_scene(area.name)
 
 func _on_HitBox_area_entered(area):
 	hp = 0
