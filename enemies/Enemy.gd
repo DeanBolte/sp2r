@@ -5,7 +5,7 @@ export var GRAVITY = 1700
 export var JUMP_STRENGTH = 550
 export var MINIMUM_JUMP_HEIGHT = 48
 export var JUMP_DISTANCE_MODIFIER = 3 # divides the distance between the collision object
-export var ACTIVE_RANGE = 512
+export var ACTIVE_RANGE = 580
 
 onready var Player = get_parent().get_parent().get_node("Player")
 
@@ -26,9 +26,7 @@ func _physics_process(delta):
 			pass
 	
 	# detect if player is within range
-	if Player.position.x < position.x - ACTIVE_RANGE or Player.position.x > position.x + ACTIVE_RANGE:
-		state = IDLE
-	else:
+	if Player.position.x > position.x - ACTIVE_RANGE and Player.position.x < position.x + ACTIVE_RANGE:
 		state = ACTIVE
 	
 	# apply gravity

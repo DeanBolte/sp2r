@@ -8,69 +8,87 @@ export var GRAVITY = 1700
 export var JUMP_STRENGTH = 750
 export var WALL_JUMP_STRENGTH = 500
 export var MAX_JUMPS = 2
+export var MAX_HEALTH = 1
 
 var velocity = Vector2.ZERO
 var jumps = MAX_JUMPS
+var hp = MAX_HEALTH
+var currentArea : Area2D
 
 func _ready():
 	randomize()
 
 func _physics_process(delta):
-	# get horizontal inputs
-	var move = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	# check player health
+	if hp <= 0:
+		pass
 	
-	# movement calculations
-	if(move != 0):
-		velocity.x += move * ACCELERATION * delta
-		velocity.x = clamp(velocity.x, -MAX_VELCOTITY, MAX_VELCOTITY)
-	
-	if(Input.get_action_strength("ui_down")):
-		SceneChanger.change_scene("res://world1_secret.tscn", "fade")
-	
-	# air
-	if(is_on_floor()):
-		# reset jumps
-		jumps = MAX_JUMPS
-		
-		if(move == 0):
-			velocity.x = lerp(velocity.x, 0, FRICTION)
-		
-		if(Input.is_action_just_pressed("ui_up")):
-			velocity.y = -JUMP_STRENGTH
-			jumps -= 1
-	else:
-		# wall jump
-		if(is_on_wall()):
-			if(Input.is_action_just_pressed("ui_up")):
-				velocity.y = -WALL_JUMP_STRENGTH
-				velocity.x += WALL_JUMP_STRENGTH * -move
-		else:
-			# double jump
-			if(Input.is_action_just_pressed("ui_up") && jumps > 0):
-				velocity.y = -JUMP_STRENGTH
-				jumps -= 1
-		
-		if(Input.is_action_just_released("ui_up") and velocity.y < -JUMP_STRENGTH/2):
-			velocity.y = -JUMP_STRENGTH/2
-		
-		if(move == 0):
-			velocity.x = lerp(velocity.x, 0, AIR_FRICTION)
+	# player movement
+	move_state(delta)
 	
 	# apply gravity
 	velocity.y += GRAVITY * delta
 	
-	# move character
+	move()
+
+func move_state(delta):
+	# get horizontal inputs
+	var move = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	
+	# movement calculations
+	if move != 0:
+		velocity.x += move * ACCELERATION * delta
+		velocity.x = clamp(velocity.x, -MAX_VELCOTITY, MAX_VELCOTITY)
+	
+	if Input.get_action_strength("ui_down"):
+		SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+	
+	# air
+	if is_on_floor():
+		# reset jumps
+		jumps = MAX_JUMPS
+		
+		if move == 0:
+			velocity.x = lerp(velocity.x, 0, FRICTION)
+		
+		if Input.is_action_just_pressed("ui_up"):
+			velocity.y = -JUMP_STRENGTH
+			jumps -= 1
+	else:
+		# wall jump
+		if is_on_wall():
+			if Input.is_action_just_pressed("ui_up"):
+				velocity.y = -WALL_JUMP_STRENGTH
+				velocity.x += WALL_JUMP_STRENGTH * -move
+		else:
+			# double jump
+			if Input.is_action_just_pressed("ui_up") && jumps > 0:
+				velocity.y = -JUMP_STRENGTH
+				jumps -= 1
+		
+		if Input.is_action_just_released("ui_up") && velocity.y < -JUMP_STRENGTH/2:
+			velocity.y = -JUMP_STRENGTH/2
+		
+		if move == 0:
+			velocity.x = lerp(velocity.x, 0, AIR_FRICTION)
+
+# move character
+func move():
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func _on_RoomDetector_area_entered(area):
+	# save current area
+	currentArea = area
+	
+	# handle camera movement
 	var collision_shape = area.get_node("CollisionShape2D")
 	var size = collision_shape.shape.extents*2
 	
 	var view_size = get_viewport_rect().size
-	if(size.y < view_size.y):
+	if size.y < view_size.y:
 		size.y = view_size.y
 	
-	if(size.x < view_size.x):
+	if size.x < view_size.x:
 		size.x = view_size.x
 	
 	var camera = $Camera2D
@@ -86,3 +104,8 @@ func _on_TransitionDetector_area_entered(area):
 			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
 		"World1Trans":
 			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+		"World1SecTrans":
+			SceneChanger.change_scene("res://world1.tscn", "fade")
+
+func _on_HitBox_area_entered(area):
+	hp = 0
