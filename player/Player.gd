@@ -14,14 +14,19 @@ var velocity = Vector2.ZERO
 var jumps = MAX_JUMPS
 var hp = MAX_HEALTH
 var currentArea : Area2D
+var entryPosition : Vector2
+var entryVelocity : Vector2
 
 func _ready():
 	randomize()
 
 func _physics_process(delta):
+	if Input.get_action_strength("ui_down"):
+		hp = 0
+	
 	# check player health
 	if hp <= 0:
-		pass
+		respawn()
 	
 	# player movement
 	move_state(delta)
@@ -39,9 +44,6 @@ func move_state(delta):
 	if move != 0:
 		velocity.x += move * ACCELERATION * delta
 		velocity.x = clamp(velocity.x, -MAX_VELCOTITY, MAX_VELCOTITY)
-	
-	if Input.get_action_strength("ui_down"):
-		SceneChanger.change_scene("res://world1_secret.tscn", "fade")
 	
 	# air
 	if is_on_floor():
@@ -85,9 +87,22 @@ func transition_scene(area_name):
 		"World1SecTrans":
 			SceneChanger.change_scene("res://world1.tscn", "fade")
 
+func respawn():
+	# reload scene
+	transition_scene(currentArea.name)
+	
+	# reset position and velocity
+	position = entryPosition
+	velocity = entryVelocity
+	
+	# reset hp
+	hp = MAX_HEALTH
+
 func _on_RoomDetector_area_entered(area):
 	# save current area
 	currentArea = area
+	entryPosition = position
+	entryVelocity = velocity
 	
 	# handle camera movement
 	var collision_shape = area.get_node("CollisionShape2D")
