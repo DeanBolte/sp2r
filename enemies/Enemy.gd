@@ -51,3 +51,7 @@ func move_state():
 		dir *= -1
 	else:
 		velocity.x = MOVE_SPEED * dir
+
+func _on_HitBox_area_entered(area):
+	area.get_parent().enemy_hit()
+	queue_free()

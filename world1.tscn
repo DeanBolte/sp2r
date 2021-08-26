@@ -131,6 +131,9 @@ position = Vector2( 2928, 720 )
 [node name="Enemy2" parent="YSort/YSort" instance=ExtResource( 6 )]
 position = Vector2( 3392, 328 )
 
+[node name="Enemy3" parent="YSort/YSort" instance=ExtResource( 6 )]
+position = Vector2( 768, 688 )
+
 [node name="Room1" type="Area2D" parent="."]
 position = Vector2( 496, 368 )
 monitoring = false
@@ -190,11 +193,11 @@ collision_mask = 0
 visible = false
 shape = SubResource( 10 )
 
-[node name="World1Trans" type="Area2D" parent="."]
+[node name="World2" type="Area2D" parent="."]
 position = Vector2( 4960, 672 )
 monitoring = false
 collision_layer = 64
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World1Trans"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World2"]
 shape = SubResource( 11 )

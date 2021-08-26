@@ -13,7 +13,7 @@ export var MAX_HEALTH = 1
 var velocity = Vector2.ZERO
 var jumps = MAX_JUMPS
 var hp = MAX_HEALTH
-var currentArea : Area2D
+var currentWorld = "World1"
 var entryPosition : Vector2
 var entryVelocity : Vector2
 
@@ -79,17 +79,18 @@ func move():
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func transition_scene(area_name):
+	currentWorld = area_name
 	match area_name:
 		"World1Secret":
 			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
-		"World1Trans":
+		"World2":
 			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
-		"World1SecTrans":
+		"World1":
 			SceneChanger.change_scene("res://world1.tscn", "fade")
 
 func respawn():
-	# reload scene
-	transition_scene(currentArea.name)
+	# reload scene state
+	SceneChanger.change_scene("res://world1.tscn", "fade")
 	
 	# reset position and velocity
 	position = entryPosition
@@ -98,9 +99,11 @@ func respawn():
 	# reset hp
 	hp = MAX_HEALTH
 
+func enemy_hit():
+	velocity.y = -JUMP_STRENGTH
+
 func _on_RoomDetector_area_entered(area):
 	# save current area
-	currentArea = area
 	entryPosition = position
 	entryVelocity = velocity
 	
@@ -125,5 +128,5 @@ func _on_RoomDetector_area_entered(area):
 func _on_TransitionDetector_area_entered(area):
 	transition_scene(area.name)
 
-func _on_HitBox_area_entered(area):
+func _on_HitBox_area_entered(_area):
 	hp = 0
