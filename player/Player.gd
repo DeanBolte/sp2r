@@ -7,6 +7,7 @@ export var AIR_FRICTION = 0.05
 export var GRAVITY = 1700
 export var JUMP_STRENGTH = 750
 export var WALL_JUMP_STRENGTH = 500
+export var MINIMUM_WALL_VELOCITY = 100
 export var MAX_JUMPS = 1
 export var MAX_HEALTH = 1
 
@@ -32,8 +33,7 @@ func _physics_process(delta):
 	# player movement
 	move_state(delta)
 	
-	# apply gravity
-	velocity.y += GRAVITY * delta
+	
 	
 	move()
 
@@ -62,11 +62,18 @@ func move_state(delta):
 			if Input.is_action_just_pressed("ui_up"):
 				velocity.y = -WALL_JUMP_STRENGTH
 				velocity.x += WALL_JUMP_STRENGTH * -move
+			
+			# apply gravity
+			if velocity.y <= MINIMUM_WALL_VELOCITY:
+				velocity.y += GRAVITY * delta
 		else:
 			# double jump
 			if Input.is_action_just_pressed("ui_up") && jumps > 0:
 				velocity.y = -JUMP_STRENGTH
 				jumps -= 1
+			
+			# apply gravity
+			velocity.y += GRAVITY * delta
 		
 		if Input.is_action_just_released("ui_up") && velocity.y < -JUMP_STRENGTH/2:
 			velocity.y = -JUMP_STRENGTH/2

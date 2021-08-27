@@ -230,6 +230,7 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
+visible = false
 shape = SubResource( 8 )
 
 [node name="Room4" type="Area2D" parent="."]
