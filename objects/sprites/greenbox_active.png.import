@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/greenbox_deactivated.png-443c74b70268b4f7fb93f9141eacc077.stex"
+path="res://.import/greenbox_active.png-8f3d35bb209ac18e51471aa55fc4cb9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/greenbox_deactivated.png"
-dest_files=[ "res://.import/greenbox_deactivated.png-443c74b70268b4f7fb93f9141eacc077.stex" ]
+source_file="res://objects/sprites/greenbox_active.png"
+dest_files=[ "res://.import/greenbox_active.png-8f3d35bb209ac18e51471aa55fc4cb9c.stex" ]
 
 [params]
 

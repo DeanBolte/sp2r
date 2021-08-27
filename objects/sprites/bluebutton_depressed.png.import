@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/redlaser.png-4502460dd0eeb1db3292193fb1291468.stex"
+path="res://.import/bluebutton_depressed.png-029af8f94fca941943b56714ad1d88d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/redlaser.png"
-dest_files=[ "res://.import/redlaser.png-4502460dd0eeb1db3292193fb1291468.stex" ]
+source_file="res://objects/sprites/bluebutton_depressed.png"
+dest_files=[ "res://.import/bluebutton_depressed.png-029af8f94fca941943b56714ad1d88d9.stex" ]
 
 [params]
 

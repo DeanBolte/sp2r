@@ -14,6 +14,7 @@ var velocity = Vector2.ZERO
 var jumps = MAX_JUMPS
 var hp = MAX_HEALTH
 var currentWorld = "World1"
+var currentArea : Area2D
 var entryPosition : Vector2
 var entryVelocity : Vector2
 
@@ -90,7 +91,9 @@ func transition_scene(area_name):
 
 func respawn():
 	# reload scene state
-	SceneChanger.change_scene("res://world1.tscn", "fade")
+	var numEnemies = currentArea.get_parent().find_node("Enemies").get_child_count()
+	for i in numEnemies:
+		currentArea.get_parent().find_node("Enemy" + str(i+1)).reset()
 	
 	# reset position and velocity
 	position = entryPosition
@@ -104,6 +107,7 @@ func enemy_hit():
 
 func _on_RoomDetector_area_entered(area):
 	# save current area
+	currentArea = area
 	entryPosition = position
 	entryVelocity = velocity
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/walls/forewall.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://world/walls/exittile.png" type="Texture" id=4]
 [ext_resource path="res://world/walls/backwall.png" type="Texture" id=5]
 [ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/RedLaser.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -121,18 +122,77 @@ tile_data = PoolIntArray( 655455, 0, 0, 720991, 0, 0, 786527, 0, 0, 1310751, 0, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 464, 592 )
+position = Vector2( 2344, 232 )
 
-[node name="YSort" type="YSort" parent="YSort"]
+[node name="Enemies" type="YSort" parent="YSort"]
 
-[node name="Enemy" parent="YSort/YSort" instance=ExtResource( 6 )]
+[node name="Enemy1" parent="YSort/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 2928, 720 )
 
-[node name="Enemy2" parent="YSort/YSort" instance=ExtResource( 6 )]
+[node name="Enemy2" parent="YSort/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 3392, 328 )
 
-[node name="Enemy3" parent="YSort/YSort" instance=ExtResource( 6 )]
-position = Vector2( 768, 688 )
+[node name="Lasers" type="YSort" parent="YSort"]
+
+[node name="RedLaser" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2320, 752 )
+rotation = 1.5708
+
+[node name="RedLaser2" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2352, 752 )
+rotation = 1.5708
+
+[node name="RedLaser3" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2384, 752 )
+rotation = 1.5708
+
+[node name="RedLaser4" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2416, 752 )
+rotation = 1.5708
+
+[node name="RedLaser5" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2448, 752 )
+rotation = 1.5708
+
+[node name="RedLaser6" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2512, 752 )
+rotation = 1.5708
+
+[node name="RedLaser7" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2544, 752 )
+rotation = 1.5708
+
+[node name="RedLaser8" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2672, 752 )
+rotation = 1.5708
+
+[node name="RedLaser9" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2704, 752 )
+rotation = 1.5708
+
+[node name="RedLaser10" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2960, 752 )
+rotation = 1.5708
+
+[node name="RedLaser11" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 2992, 752 )
+rotation = 1.5708
+
+[node name="RedLaser12" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 3024, 752 )
+rotation = 1.5708
+
+[node name="RedLaser13" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 3536, 16 )
+rotation = 1.5708
+
+[node name="RedLaser14" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 3568, 16 )
+rotation = 1.5708
+
+[node name="RedLaser15" parent="YSort/Lasers" instance=ExtResource( 7 )]
+position = Vector2( 3600, 16 )
+rotation = 1.5708
 
 [node name="Room1" type="Area2D" parent="."]
 position = Vector2( 496, 368 )

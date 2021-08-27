@@ -8,6 +8,7 @@ export var JUMP_DISTANCE_MODIFIER = 3 # divides the distance between the collisi
 export var ACTIVE_RANGE = 580
 
 onready var Player = get_parent().get_parent().get_node("Player")
+onready var initPosition = position
 
 enum {
 	ACTIVE,
@@ -51,6 +52,10 @@ func move_state():
 		dir *= -1
 	else:
 		velocity.x = MOVE_SPEED * dir
+
+func reset():
+	position = initPosition
+	state = IDLE
 
 func _on_HitBox_area_entered(area):
 	area.get_parent().enemy_hit()

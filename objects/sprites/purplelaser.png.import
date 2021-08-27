@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/purplelaser.png-c4cea56f12f0268cf9456e77a66c63eb.stex"
+path="res://.import/purplelaser.png-e0e62405001f82ccf1f44047b6cf5b12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/purplelaser.png"
-dest_files=[ "res://.import/purplelaser.png-c4cea56f12f0268cf9456e77a66c63eb.stex" ]
+source_file="res://objects/sprites/purplelaser.png"
+dest_files=[ "res://.import/purplelaser.png-e0e62405001f82ccf1f44047b6cf5b12.stex" ]
 
 [params]
 

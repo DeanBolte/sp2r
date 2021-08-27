@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/redbutton_depressed.png-df00158c922e6ad52748d127627f7139.stex"
+path="res://.import/yellowbox_active.png-bb8210fc02870fd152156dbcd405236d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/redbutton_depressed.png"
-dest_files=[ "res://.import/redbutton_depressed.png-df00158c922e6ad52748d127627f7139.stex" ]
+source_file="res://objects/sprites/yellowbox_active.png"
+dest_files=[ "res://.import/yellowbox_active.png-bb8210fc02870fd152156dbcd405236d.stex" ]
 
 [params]
 

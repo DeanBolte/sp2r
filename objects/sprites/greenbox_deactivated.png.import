@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bluebutton_pressed.png-328f2107475a64230a3a5ad5e0f5ce39.stex"
+path="res://.import/greenbox_deactivated.png-4807c1bddf0685012dae7c34eb61863a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/bluebutton_pressed.png"
-dest_files=[ "res://.import/bluebutton_pressed.png-328f2107475a64230a3a5ad5e0f5ce39.stex" ]
+source_file="res://objects/sprites/greenbox_deactivated.png"
+dest_files=[ "res://.import/greenbox_deactivated.png-4807c1bddf0685012dae7c34eb61863a.stex" ]
 
 [params]
 
