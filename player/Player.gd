@@ -106,9 +106,10 @@ func enemy_hit():
 
 func _on_RoomDetector_area_entered(area):
 	# save current area
-	currentArea = area
-	entryPosition = position
-	entryVelocity = velocity
+	if area != currentArea:
+		currentArea = area
+		entryPosition = position
+		entryVelocity = velocity
 	
 	# handle camera movement
 	var collision_shape = area.get_node("CollisionShape2D")
