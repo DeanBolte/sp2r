@@ -7,7 +7,7 @@ export var AIR_FRICTION = 0.05
 export var GRAVITY = 1700
 export var JUMP_STRENGTH = 750
 export var WALL_JUMP_STRENGTH = 500
-export var MAX_JUMPS = 2
+export var MAX_JUMPS = 1
 export var MAX_HEALTH = 1
 
 var velocity = Vector2.ZERO
@@ -56,7 +56,6 @@ func move_state(delta):
 		
 		if Input.is_action_just_pressed("ui_up"):
 			velocity.y = -JUMP_STRENGTH
-			jumps -= 1
 	else:
 		# wall jump
 		if is_on_wall():
