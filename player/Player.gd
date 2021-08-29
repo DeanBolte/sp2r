@@ -111,9 +111,9 @@ func respawn():
 	# reload scene state
 	var enemyYsort = currentArea.get_parent().find_node("Enemies")
 	if enemyYsort:
-		var numEnemies = enemyYsort.get_child_count()
-		for i in numEnemies:
-			currentArea.get_parent().find_node("Enemy" + str(i+1)).reset()
+		var enemies = enemyYsort.get_children()
+		for enemy in enemies:
+			enemy.reset()
 	
 	# reset position and velocity
 	position = entryPosition
