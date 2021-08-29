@@ -89,17 +89,31 @@ func transition_scene(area_name):
 	currentWorld = area_name
 	match area_name:
 		"World1Secret":
-			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
-		"World2":
-			SceneChanger.change_scene("res://world1_secret.tscn", "fade")
+			SceneChanger.change_scene("res://scenes/world1_secret.tscn", "fade")
 		"World1":
-			SceneChanger.change_scene("res://world1.tscn", "fade")
+			SceneChanger.change_scene("res://scenes/world1.tscn", "fade")
+		"World2":
+			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+		"World3":
+			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+		"World3Secret":
+			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+		"World4":
+			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+		"World1SecretTrans":
+			SceneChanger.secretGot()
+			SceneChanger.change_scene("res://scenes/world1.tscn", "fade")
+		"World3SecretTrans":
+			SceneChanger.secretGot()
+			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
 
 func respawn():
 	# reload scene state
-	var numEnemies = currentArea.get_parent().find_node("Enemies").get_child_count()
-	for i in numEnemies:
-		currentArea.get_parent().find_node("Enemy" + str(i+1)).reset()
+	var enemyYsort = currentArea.get_parent().find_node("Enemies")
+	if enemyYsort:
+		var numEnemies = enemyYsort.get_child_count()
+		for i in numEnemies:
+			currentArea.get_parent().find_node("Enemy" + str(i+1)).reset()
 	
 	# reset position and velocity
 	position = entryPosition
