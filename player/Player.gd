@@ -93,17 +93,17 @@ func transition_scene(area_name):
 		"World2":
 			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
 		"World3":
-			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+			SceneChanger.change_scene("res://scenes/world3.tscn", "fade")
 		"World3Secret":
-			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+			SceneChanger.change_scene("res://scenes/world3_secret.tscn", "fade")
 		"World4":
-			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+			SceneChanger.change_scene("res://scenes/world4.tscn", "fade")
 		"World1SecretTrans":
 			Console.secretGot(5)
 			SceneChanger.change_scene("res://scenes/world1.tscn", "fade")
 		"World3SecretTrans":
 			Console.secretGot(12)
-			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
+			SceneChanger.change_scene("res://scenes/world3.tscn", "fade")
 
 func respawn():
 	# reload scene state
