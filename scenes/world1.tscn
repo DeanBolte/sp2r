@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/RedLaser.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://world/walls/exittile.png" type="Texture" id=5]
 [ext_resource path="res://world/walls/backwall.png" type="Texture" id=6]
 [ext_resource path="res://world/walls/forewall.png" type="Texture" id=7]
+[ext_resource path="res://objects/Secret.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -50,10 +51,10 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=5]
 0/name = "exittile.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -64,29 +65,26 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 12 )
+0/shape = SubResource( 4 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 12 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 128, 16 )
+extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 496, 368 )
+extents = Vector2( 128, 16 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 496, 368 )
@@ -95,6 +93,9 @@ extents = Vector2( 496, 368 )
 extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 496, 368 )
+
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 16, 16 )
 
 [node name="Node2D" type="Node2D"]
@@ -122,7 +123,7 @@ format = 1
 tile_data = PoolIntArray( 17, 0, 196611, 19, 0, 196611, 24, 0, 3, 65552, 0, 196611, 65560, 0, 131075, 65574, 0, 0, 131087, 0, 3, 131095, 0, 196611, 131109, 0, 0, 131110, 0, 0, 196614, 0, 196608, 196615, 0, 196610, 196623, 0, 131075, 196625, 0, 196611, 196630, 0, 196611, 196646, 0, 0, 196722, 0, 0, 262146, 0, 196608, 262147, 0, 7, 262180, 0, 0, 262258, 0, 0, 262300, 0, 0, 327683, 0, 131075, 327705, 0, 3, 327717, 0, 0, 327794, 0, 0, 327835, 0, 0, 393220, 0, 3, 393241, 0, 65539, 393253, 0, 0, 393280, 0, 0, 393372, 0, 0, 458756, 0, 65539, 458777, 0, 131075, 458789, 0, 0, 458790, 0, 0, 458816, 0, 0, 458817, 0, 0, 458818, 0, 0, 458838, 0, 0, 458858, 0, 0, 458910, 0, 0, 524291, 0, 196608, 524292, 0, 196615, 524296, 0, 196611, 524325, 0, 0, 524374, 0, 0, 524395, 0, 0, 524440, 0, 0, 524446, 0, 0, 589824, 0, 196608, 589825, 0, 196610, 589830, 0, 196611, 589862, 0, 0, 589886, 0, 0, 589910, 0, 0, 589911, 0, 0, 589931, 0, 0, 589976, 0, 0, 589982, 0, 0, 655397, 0, 0, 655398, 0, 0, 655447, 0, 0, 655458, 0, 0, 655461, 0, 0, 655463, 0, 0, 655464, 0, 0, 655468, 0, 0, 655516, 0, 0, 655517, 0, 0, 720922, 0, 196611, 720933, 0, 0, 720934, 0, 0, 720982, 0, 0, 720983, 0, 0, 720989, 0, 0, 720994, 0, 0, 720999, 0, 0, 721000, 0, 0, 721001, 0, 0, 721004, 0, 0, 786459, 0, 196611, 786469, 0, 0, 786470, 0, 0, 786493, 0, 0, 786517, 0, 0, 786518, 0, 0, 786519, 0, 0, 786520, 0, 0, 786525, 0, 0, 786529, 0, 0, 786582, 0, 0, 786589, 0, 0, 851996, 0, 4, 851997, 0, 196610, 852006, 0, 0, 852028, 0, 0, 852122, 0, 0, 852126, 0, 0, 917522, 0, 3, 917532, 0, 131075, 917541, 0, 0, 917563, 0, 0, 917569, 0, 0, 917657, 0, 0, 983058, 0, 131075, 983069, 0, 196611, 983078, 0, 0, 983079, 0, 0, 983085, 0, 0, 983098, 0, 0, 983099, 0, 0, 983105, 0, 0, 983106, 0, 0, 983198, 0, 0, 1048614, 0, 0, 1048621, 0, 0, 1048633, 0, 0, 1048636, 0, 0, 1048640, 0, 0, 1048641, 0, 0, 1048642, 0, 0, 1048733, 0, 0, 1114148, 0, 0, 1114150, 0, 0, 1114168, 0, 0, 1114170, 0, 0, 1114173, 0, 0, 1114176, 0, 0, 1114177, 0, 0, 1114198, 0, 0, 1179677, 0, 196611, 1179685, 0, 0, 1179686, 0, 0, 1179703, 0, 0, 1179707, 0, 0, 1179710, 0, 0, 1179713, 0, 0, 1179714, 0, 0, 1179733, 0, 0, 1179748, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245238, 0, 0, 1245268, 0, 0, 1245269, 0, 0, 1245274, 0, 0, 1245275, 0, 0, 1245276, 0, 0, 1245277, 0, 0, 1245278, 0, 0, 1245282, 0, 0, 1245285, 0, 0, 1310720, 0, 4, 1310721, 0, 196610, 1310731, 0, 4, 1310732, 0, 196610, 1310757, 0, 0, 1310758, 0, 0, 1310773, 0, 0, 1310775, 0, 0, 1310789, 0, 0, 1310803, 0, 0, 1310806, 0, 0, 1310822, 0, 0, 1310874, 0, 0, 1376256, 0, 65539, 1376258, 0, 196611, 1376267, 0, 131075, 1376271, 0, 3, 1376273, 0, 196611, 1376293, 0, 0, 1376294, 0, 0, 1376308, 0, 0, 1376312, 0, 0, 1376323, 0, 0, 1376324, 0, 0, 1376326, 0, 0, 1376364, 0, 0, 1376369, 0, 0, 1376401, 0, 0, 1376402, 0, 0, 1376410, 0, 0, 1376414, 0, 0, 1441792, 0, 131075, 1441807, 0, 196612, 1441808, 0, 196610, 1441814, 0, 196611, 1441818, 0, 196611, 1441829, 0, 0, 1441849, 0, 0, 1441857, 0, 0, 1441860, 0, 0, 1441899, 0, 0, 1441900, 0, 0, 1441903, 0, 0, 1441904, 0, 0, 1441946, 0, 0 )
 
 [node name="ExitTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 4 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 128
 collision_mask = 0
@@ -132,7 +133,7 @@ tile_data = PoolIntArray( 655455, 0, 0, 720991, 0, 0, 786527, 0, 0, 1310751, 0, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 1424, 376 )
+position = Vector2( 816, 232 )
 
 [node name="Enemies" type="YSort" parent="YSort"]
 
@@ -204,6 +205,23 @@ rotation = 1.5708
 position = Vector2( 3600, 16 )
 rotation = 1.5708
 
+[node name="YSort" type="YSort" parent="YSort"]
+
+[node name="Secret" parent="YSort/YSort" instance=ExtResource( 8 )]
+position = Vector2( 848, 592 )
+
+[node name="Secret2" parent="YSort/YSort" instance=ExtResource( 8 )]
+position = Vector2( 1456, 624 )
+
+[node name="Secret3" parent="YSort/YSort" instance=ExtResource( 8 )]
+position = Vector2( 2608, 656 )
+
+[node name="Secret4" parent="YSort/YSort" instance=ExtResource( 8 )]
+position = Vector2( 3824, 80 )
+
+[node name="Secret5" parent="YSort/YSort" instance=ExtResource( 8 )]
+position = Vector2( 4944, 240 )
+
 [node name="Room1" type="Area2D" parent="."]
 position = Vector2( 496, 368 )
 monitoring = false
@@ -212,7 +230,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1"]
 visible = false
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Room2" type="Area2D" parent="."]
 position = Vector2( 1520, 368 )
@@ -222,7 +240,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
 visible = false
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="World1Secret" type="Area2D" parent="."]
 position = Vector2( 1440, -48 )
@@ -231,7 +249,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World1Secret"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Room3" type="Area2D" parent="."]
 position = Vector2( 2544, 368 )
@@ -241,7 +259,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
 visible = false
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Room4" type="Area2D" parent="."]
 position = Vector2( 3568, 368 )
@@ -251,7 +269,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room4"]
 visible = false
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Room5" type="Area2D" parent="."]
 position = Vector2( 4592, 368 )
@@ -261,7 +279,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room5"]
 visible = false
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="World2" type="Area2D" parent="."]
 position = Vector2( 4960, 672 )
@@ -270,4 +288,4 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World2"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )

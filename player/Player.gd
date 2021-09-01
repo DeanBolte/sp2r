@@ -33,8 +33,6 @@ func _physics_process(delta):
 	# player movement
 	move_state(delta)
 	
-	
-	
 	move()
 
 func move_state(delta):
@@ -155,3 +153,9 @@ func _on_TransitionDetector_area_entered(area):
 
 func _on_HitBox_area_entered(_area):
 	hp = 0
+
+func _on_SecretDetector_area_entered(area):
+	var secret = area.get_parent()
+	if secret.obtained == false:
+		secret.secretGot()
+		SceneChanger.secretGot()

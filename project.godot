@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneChanger="*res://SceneChanger.tscn"
+Console="*res://Console.tscn"
 
 [display]
 
@@ -69,6 +70,7 @@ ui_down={
 2d_physics/layer_6="Rooms"
 2d_physics/layer_7="Transitions"
 2d_physics/layer_8="ExitWall"
+2d_physics/layer_9="Secret"
 
 [rendering]
 
