@@ -99,10 +99,10 @@ func transition_scene(area_name):
 		"World4":
 			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
 		"World1SecretTrans":
-			SceneChanger.secretGot()
+			Console.secretGot(5)
 			SceneChanger.change_scene("res://scenes/world1.tscn", "fade")
 		"World3SecretTrans":
-			SceneChanger.secretGot()
+			Console.secretGot(12)
 			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
 
 func respawn():
@@ -158,4 +158,3 @@ func _on_SecretDetector_area_entered(area):
 	var secret = area.get_parent()
 	if secret.is_obtained() == false:
 		secret.secretGot()
-		SceneChanger.secretGot()
