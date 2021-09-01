@@ -209,18 +209,22 @@ rotation = 1.5708
 
 [node name="Secret" parent="YSort/YSort" instance=ExtResource( 8 )]
 position = Vector2( 848, 592 )
+index = 0
 
 [node name="Secret2" parent="YSort/YSort" instance=ExtResource( 8 )]
 position = Vector2( 1456, 624 )
 
 [node name="Secret3" parent="YSort/YSort" instance=ExtResource( 8 )]
 position = Vector2( 2608, 656 )
+index = 2
 
 [node name="Secret4" parent="YSort/YSort" instance=ExtResource( 8 )]
 position = Vector2( 3824, 80 )
+index = 3
 
 [node name="Secret5" parent="YSort/YSort" instance=ExtResource( 8 )]
 position = Vector2( 4944, 240 )
+index = 4
 
 [node name="Room1" type="Area2D" parent="."]
 position = Vector2( 496, 368 )

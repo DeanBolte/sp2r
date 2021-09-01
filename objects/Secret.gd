@@ -1,11 +1,14 @@
 extends StaticBody2D
 
-export var number = 1
+export var index = 1
 
 func _ready():
-	if Console.secretsActivated[number] == false:
+	if Console.secretsActivated[index] == false:
 		visible = false
 
 func secretGot():
-	Console.secretsActivated[number] = true
+	Console.secretsActivated[index] = true
 	visible = true
+
+func is_obtained():
+	return Console.secretsActivated[index]

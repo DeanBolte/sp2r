@@ -156,6 +156,6 @@ func _on_HitBox_area_entered(_area):
 
 func _on_SecretDetector_area_entered(area):
 	var secret = area.get_parent()
-	if secret.obtained == false:
+	if secret.is_obtained() == false:
 		secret.secretGot()
 		SceneChanger.secretGot()
