@@ -3,9 +3,9 @@ extends StaticBody2D
 export var number = 1
 
 func _ready():
-	if Console.secrets[number] == false:
+	if Console.secretsActivated[number] == false:
 		visible = false
 
 func secretGot():
-	Console.secrets[number] = true
+	Console.secretsActivated[number] = true
 	visible = true
