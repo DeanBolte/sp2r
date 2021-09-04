@@ -109,12 +109,7 @@ func transition_scene(area_name):
 			SceneChanger.change_scene("res://scenes/world3.tscn", "fade")
 
 func respawn():
-	# reload scene state
-	var enemyYsort = currentArea.get_parent().find_node("Enemies")
-	if enemyYsort:
-		var enemies = enemyYsort.get_children()
-		for enemy in enemies:
-			enemy.reset()
+	reload_scene()
 	
 	# reset position and velocity
 	position = entryPosition
@@ -122,6 +117,18 @@ func respawn():
 	
 	# reset hp
 	hp = MAX_HEALTH
+
+func reload_scene():
+	# reload scene state
+	var enemyYsort = currentArea.get_parent().find_node("Enemies")
+	if enemyYsort:
+		var enemies = enemyYsort.get_children()
+		for enemy in enemies:
+			enemy.reset()
+	
+	# reset puzzles
+		Console.resetLasers()
+		Console.resetBlueButton()
 
 func enemy_hit():
 	velocity.y = -JUMP_STRENGTH
@@ -132,10 +139,8 @@ func _on_RoomDetector_area_entered(area):
 		currentArea = area
 		entryPosition = position
 		entryVelocity = velocity
-	
-	# reset lasers
-	Console.resetLasers()
-	Console.resetBlueButton()
+		
+		reload_scene()
 	
 	# handle camera movement
 	var collision_shape = area.get_node("CollisionShape2D")

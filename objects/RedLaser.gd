@@ -1,7 +1,9 @@
 extends StaticBody2D
 
-export var inverted = false
+export var INVERTED = false
+export var STATIC = false
 
 func _physics_process(delta):
-	visible = (Console.redLasersActivated && !inverted) || (!Console.redLasersActivated && inverted)
-	get_node("KillZone").monitorable = (Console.redLasersActivated && !inverted) || (!Console.redLasersActivated && inverted)
+	if !STATIC:
+		visible = (Console.redLasersActivated && !INVERTED) || (!Console.redLasersActivated && INVERTED)
+		get_node("KillZone").monitorable = (Console.redLasersActivated && !INVERTED) || (!Console.redLasersActivated && INVERTED)
