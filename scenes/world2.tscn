@@ -78,6 +78,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 496, 368 )
+
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 496, 368 )
 
@@ -91,9 +94,6 @@ extents = Vector2( 496, 368 )
 extents = Vector2( 496, 368 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 496, 368 )
-
-[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 32, 32 )
 
 [node name="Node2D" type="Node2D"]
@@ -130,7 +130,7 @@ tile_data = PoolIntArray( -1703969, 0, 0, -1638433, 0, 0, -1572897, 0, 0, -78649
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( -2744, -368 )
+position = Vector2( 24, 416 )
 
 [node name="Lasers" type="YSort" parent="YSort"]
 
@@ -239,7 +239,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1"]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Room2" type="Area2D" parent="."]
 position = Vector2( 512, -384 )
@@ -249,7 +249,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
 visible = false
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Room3" type="Area2D" parent="."]
 position = Vector2( -512, -672 )
@@ -259,7 +259,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
 visible = false
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Room4" type="Area2D" parent="."]
 position = Vector2( -1536, -672 )
@@ -269,7 +269,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room4"]
 visible = false
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Room5" type="Area2D" parent="."]
 position = Vector2( -2560, -672 )
@@ -279,7 +279,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room5"]
 visible = false
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="World3" type="Area2D" parent="."]
 position = Vector2( -3008, -352 )
@@ -288,7 +288,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World3"]
-shape = SubResource( 6 )
+shape = SubResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="World3"]
 texture = ExtResource( 9 )

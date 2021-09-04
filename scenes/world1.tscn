@@ -134,7 +134,7 @@ tile_data = PoolIntArray( 655455, 0, 0, 720991, 0, 0, 786527, 0, 0, 1310751, 0, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 2984, 392 )
+position = Vector2( 896, 112 )
 
 [node name="Enemies" type="YSort" parent="YSort"]
 
