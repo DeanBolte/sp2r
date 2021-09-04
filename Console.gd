@@ -4,6 +4,7 @@ export var NUMBER_OF_SECRETS = 18
 
 var secretsActivated = []
 var redLasersActivated = true
+var blueButtonActivated = false
 
 func _ready():
 	for i in range(NUMBER_OF_SECRETS):
@@ -14,3 +15,6 @@ func secretGot(index):
 
 func resetLasers():
 	redLasersActivated = true
+
+func resetBlueButton():
+	blueButtonActivated = false

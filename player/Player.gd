@@ -133,6 +133,10 @@ func _on_RoomDetector_area_entered(area):
 		entryPosition = position
 		entryVelocity = velocity
 	
+	# reset lasers
+	Console.resetLasers()
+	Console.resetBlueButton()
+	
 	# handle camera movement
 	var collision_shape = area.get_node("CollisionShape2D")
 	var size = collision_shape.shape.extents*2
