@@ -166,6 +166,7 @@ position = Vector2( 3360, 1024 )
 
 [node name="GreenSwitch" parent="YSort/Switches" instance=ExtResource( 12 )]
 position = Vector2( 3232, 1024 )
+INVERTED = true
 
 [node name="GreenSwitch2" parent="YSort/Switches" instance=ExtResource( 12 )]
 position = Vector2( 3520, 704 )
@@ -292,6 +293,7 @@ position = Vector2( 3680, 352 )
 
 [node name="GreenBox" parent="YSort/Boxes" instance=ExtResource( 13 )]
 position = Vector2( 3680, 416 )
+INVERTED = true
 
 [node name="GreenBox2" parent="YSort/Boxes" instance=ExtResource( 13 )]
 position = Vector2( 3456, 704 )

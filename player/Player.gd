@@ -129,6 +129,8 @@ func reload_scene():
 	# reset puzzles
 		Console.resetLasers()
 		Console.resetBlueButton()
+		Console.resetGreenBox()
+		Console.resetYellowBox()
 
 func enemy_hit():
 	velocity.y = -JUMP_STRENGTH
