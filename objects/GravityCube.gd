@@ -14,4 +14,5 @@ func _physics_process(delta):
 	velocity.y += GRAVITY * delta * direction
 	
 	# move cube
+	velocity.x = 0
 	velocity = move_and_slide(velocity)
