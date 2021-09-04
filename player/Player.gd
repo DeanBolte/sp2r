@@ -93,8 +93,10 @@ func transition_scene(area_name):
 		"World2":
 			SceneChanger.change_scene("res://scenes/world2.tscn", "fade")
 		"World3":
+			Console.resetLasers()
 			SceneChanger.change_scene("res://scenes/world3.tscn", "fade")
 		"World3Secret":
+			Console.resetLasers()
 			SceneChanger.change_scene("res://scenes/world3_secret.tscn", "fade")
 		"World4":
 			SceneChanger.change_scene("res://scenes/world4.tscn", "fade")
@@ -102,6 +104,7 @@ func transition_scene(area_name):
 			Console.secretGot(5)
 			SceneChanger.change_scene("res://scenes/world1.tscn", "fade")
 		"World3SecretTrans":
+			Console.resetLasers()
 			Console.secretGot(12)
 			SceneChanger.change_scene("res://scenes/world3.tscn", "fade")
 
