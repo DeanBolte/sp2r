@@ -3,6 +3,7 @@ extends CanvasLayer
 export var NUMBER_OF_SECRETS = 18
 
 var secretsActivated = []
+var redLasersActivated = true
 
 func secretGot(index):
 	secretsActivated[index] = true
