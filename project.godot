@@ -71,6 +71,7 @@ ui_down={
 2d_physics/layer_7="Transitions"
 2d_physics/layer_8="ExitWall"
 2d_physics/layer_9="Secret"
+2d_physics/layer_10="BlueCube"
 
 [rendering]
 
