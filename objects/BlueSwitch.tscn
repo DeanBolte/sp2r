@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/sprites/bluebutton_depressed.png" type="Texture" id=1]
 [ext_resource path="res://objects/sprites/bluebutton_pressed.png" type="Texture" id=2]
@@ -15,6 +15,9 @@ extents = Vector2( 5, 1 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 5, 1 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 16 )
 
 [node name="BlueSwitch" type="StaticBody2D"]
 script = ExtResource( 3 )
@@ -49,4 +52,13 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
 visible = false
 shape = SubResource( 4 )
+
+[node name="RoomDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector"]
+visible = false
+shape = SubResource( 5 )
 [connection signal="body_entered" from="ActivationArea" to="." method="_on_ActivationArea_body_entered"]
+[connection signal="area_entered" from="RoomDetector" to="." method="_on_RoomDetector_area_entered"]

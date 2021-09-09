@@ -139,6 +139,7 @@ func _on_RoomDetector_area_entered(area):
 	# save current area
 	if area != currentArea:
 		currentArea = area
+		Console.activeArea = area
 		entryPosition = position
 		entryVelocity = velocity
 		

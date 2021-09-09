@@ -8,6 +8,8 @@ var blueButtonActivated = false
 var greenBoxActivated = true
 var yellowBoxActivated = false
 
+var activeArea : Area2D
+
 func _ready():
 	for i in range(NUMBER_OF_SECRETS):
 		secretsActivated.append(false)
